@@ -1,0 +1,6 @@
+---
+- hosts: web
+  become: true
+  tasks:
+  - name: Remove User
+    user:  name=ansible state=absent remove=yes force=yes

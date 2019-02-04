@@ -1,0 +1,6 @@
+---
+- hosts: web
+  become: true
+  tasks:
+  - name: Create a file
+    file: path=/root/ganesh/jenkins state=directory mode=755 owner=root group=root 

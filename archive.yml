@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Ansible zip file example
+    archive:
+     path: /root/ganesh/ansible/ganesh.txt
+     dest: /root/ganesh/ansible/ganesh.zip
+     format: zip
+
+

@@ -1,0 +1,8 @@
+---
+- hosts: web
+  become: true
+  tasks:
+  - name: Create a Directory
+    file: path=/root/ansible/jenkins state=directory mode=0755 owner=root group=root
+    sudo: yes
+

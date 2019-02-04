@@ -1,0 +1,10 @@
+---
+- hosts: all 
+  vars: 
+    emp:
+     - Ganesh
+     - sujan
+     - Hari
+  tasks: 
+  - name: Ansible basic variable example
+    debug: msg="{{ emp }} "

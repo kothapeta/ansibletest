@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Date and Time example in Ansible
+    debug:
+     var=ansible_date_time.date
+  - name: Ansible timestamp filename example
+    command: touch ganesh{{ansible_date_time.date}}.log

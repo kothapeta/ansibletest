@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - include: install_apache.yml
+
+    - name: check apache service
+      service: name={{ package_name }} state=started
+#      debug: msg={{ ansible_distribution }}
+      sudo: yes
+

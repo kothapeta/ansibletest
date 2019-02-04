@@ -1,0 +1,7 @@
+---
+- hosts: web
+  gather_facts: True
+  become: true
+  tasks:
+  - name: Create a file
+    template: src=test dest=/tmp/testfile mode=644

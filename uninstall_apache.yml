@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+
+    - name: install httpd package
+      yum: name=httpd state=absent
+#      sudo: yes
+
+#    - name: starting httpd service
+#      service: name=httpd state=started
+#      sudo: yes
+
