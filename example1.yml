@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: True
+  vars:
+   port: 8080  
+  tasks:
+    - name: install httpd apache
+      yum: name=httpd state=latest
+      sudo: yes

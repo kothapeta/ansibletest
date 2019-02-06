@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+   - action: shell /bin/ls
+     register: list_files
+
+   - assert:
+       that:
+         - "'testfile.txt' in list_files.stdout_lines"
