@@ -1,0 +1,41 @@
+---
+ - hosts: web
+   remote_user: root
+
+   tasks:
+     - name: check if  httpd installed 
+       shell: rpm -qa | grep httpd
+       tags:
+         - install
+       register: check_httpd 
+       sudo: yes
+
+
+     - name: notify if https installed
+       debug: msg="httpd is installed on {{ inventory_hostname }}"
+       when: check_httpd.rc == 0
+       tags:
+         - install
+
+     - name: get status of httpd service
+       command: service httpd status
+       register: httpd_status
+       sudo: yes
+       ignore_errors: true
+       tags:
+         - start
+         - stop
+       
+     - name: check if  httpd service stopped
+       debug: msg="{{ httpd_status.stdout }}"
+       tags:
+         - stop
+       sudo: yes
+ 
+     - name: check if  httpd service running
+       debug: msg="{{ httpd_status.stdout }}"
+       tags:
+         - start
+       sudo: yes
+
+
